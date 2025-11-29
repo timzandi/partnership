@@ -1,0 +1,192 @@
+/* Body */
+body {
+    font-family: 'Arial', sans-serif;
+    padding-top: 70px; /* space for sticky navbar */
+    margin: 0;
+}
+
+/* Navbar */
+.navbar.sticky-top {
+    z-index: 1030;
+}
+.brand-subtext {
+    color: #999;
+    font-weight: normal;
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+.hero-overlay {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.hero-overlay h1 {
+    font-size: clamp(2rem, 6vw, 4rem);
+    font-weight: 700;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+}
+.hero-overlay p {
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+}
+
+/* Flip Cards */
+.flip-card {
+    perspective: 1000px;
+    cursor: pointer;
+    width: 100%;
+    min-height: 250px;
+    margin: auto;
+    display: flex;
+    flex: 1 1 auto;
+}
+@media(min-width: 768px){ .flip-card { min-height: 350px; } }
+@media(min-width: 1200px){ .flip-card { min-height: 400px; } }
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.flip-card-front {
+    background-color: #fff;
+    color: #000;
+    position: relative;
+    overflow: hidden;
+}
+.flip-card-front:hover {
+    background-color: #000;
+    color: #fff;
+}
+.flip-card-front::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.25); /* subtle overlay */
+    z-index: 1;
+}
+
+.flip-card-back {
+    background-color: #ccc;
+    color: #333;
+    transform: rotateY(180deg);
+    text-align: center;
+    padding: 20px;
+}
+
+.service-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+/* Card Body Overlay */
+.flip-card-front .card-body {
+    position: relative;
+    z-index: 2;
+    color: white;
+    text-shadow: 0 0 5px rgba(0,0,0,0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Flip animation */
+.flip-card.active .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+
+/* Contact Boxes - taller, sleek Apple-style */
+.contact-box {
+    flex: 0 0 200px;          /* width doesn't grow too wide */
+    min-height: 80px;         /* taller boxes */
+    background-color: #fff;
+    border-radius: 16px;
+    padding: 16px 20px;       /* more vertical padding for height */
+    display: flex;
+    align-items: center;
+    gap: 12px;                /* space between icon and text */
+    text-align: left;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1),
+                box-shadow 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+    cursor: pointer;
+}
+
+.contact-box:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.contact-box img {
+    flex-shrink: 0;           /* prevent icon from shrinking */
+}
+.contact-box small {
+    color: #666;
+}
+
+
+/* Footer */
+footer {
+    font-size: 0.9rem;
+    padding: 15px 0;
+}
+
+.btn-complete {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-complete:hover {
+    background-color: darkgreen;
+}
